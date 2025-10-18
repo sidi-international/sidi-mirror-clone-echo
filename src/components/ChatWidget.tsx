@@ -61,7 +61,7 @@ const ChatWidget = () => {
           clearInterval(animationIntervalRef.current);
         }
       }
-    }, 200);
+    }, 100);
   };
 
   const handleMouseLeave = () => {
@@ -77,7 +77,7 @@ const ChatWidget = () => {
       } else {
         clearInterval(reverseInterval);
       }
-    }, 200);
+    }, 100);
   };
 
   useEffect(() => {
