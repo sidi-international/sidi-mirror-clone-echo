@@ -15,6 +15,7 @@ interface Message {
 
 const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
@@ -131,12 +132,14 @@ const ChatWidget = () => {
           <button
             data-chat-button
             onClick={() => setIsOpen(true)}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
             className="w-16 h-16 rounded-full shadow-lg transition-transform hover:scale-110 cursor-pointer border-0 bg-transparent p-0"
           >
             <img 
-              src={halEyeClosed} 
+              src={isHovered ? halEyeOpen : halEyeClosed} 
               alt="HAL 9000" 
-              className="w-full h-full object-cover rounded-full"
+              className="w-full h-full object-cover rounded-full transition-opacity duration-300"
             />
           </button>
         )}
