@@ -5,8 +5,9 @@ import { Input } from "@/components/ui/input";
 import { MessageCircle, X, Send, Loader2 } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import ReactMarkdown from "react-markdown";
-import halEyeClosed from "@/assets/hal-eye-closed.png";
-import halEyeOpen from "@/assets/hal-eye-open.png";
+import halEyeSmall from "@/assets/hal-eye-small.png";
+import halEyeMedium from "@/assets/hal-eye-medium.png";
+import halEyeLarge from "@/assets/hal-eye-large.png";
 
 interface Message {
   role: "user" | "assistant";
@@ -15,7 +16,7 @@ interface Message {
 
 const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+  const [animationFrame, setAnimationFrame] = useState(0);
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
@@ -25,7 +26,10 @@ const ChatWidget = () => {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const animationIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
+
+  const eyeImages = [halEyeSmall, halEyeMedium, halEyeLarge];
 
   useEffect(() => {
     if (scrollAreaRef.current && messages.length > 0) {
@@ -43,6 +47,46 @@ const ChatWidget = () => {
       }
     }
   }, [messages]);
+
+  const handleMouseEnter = () => {
+    let frame = 0;
+    setAnimationFrame(0);
+    
+    animationIntervalRef.current = setInterval(() => {
+      frame++;
+      if (frame <= 2) {
+        setAnimationFrame(frame);
+      } else {
+        if (animationIntervalRef.current) {
+          clearInterval(animationIntervalRef.current);
+        }
+      }
+    }, 100);
+  };
+
+  const handleMouseLeave = () => {
+    if (animationIntervalRef.current) {
+      clearInterval(animationIntervalRef.current);
+    }
+    
+    let frame = animationFrame;
+    const reverseInterval = setInterval(() => {
+      frame--;
+      if (frame >= 0) {
+        setAnimationFrame(frame);
+      } else {
+        clearInterval(reverseInterval);
+      }
+    }, 100);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (animationIntervalRef.current) {
+        clearInterval(animationIntervalRef.current);
+      }
+    };
+  }, []);
 
   const sendMessage = async (userMessage: string) => {
     if (!userMessage.trim() || isLoading) return;
@@ -132,14 +176,14 @@ const ChatWidget = () => {
           <button
             data-chat-button
             onClick={() => setIsOpen(true)}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             className="w-16 h-16 rounded-full shadow-lg cursor-pointer border-0 bg-transparent p-0"
           >
             <img 
-              src={isHovered ? halEyeOpen : halEyeClosed} 
+              src={eyeImages[animationFrame]} 
               alt="HAL 9000" 
-              className="w-full h-full object-cover rounded-full transition-opacity duration-300"
+              className="w-full h-full object-cover rounded-full"
             />
           </button>
         )}
@@ -149,7 +193,7 @@ const ChatWidget = () => {
             <div className="flex items-center justify-between p-4 border-b bg-primary text-white rounded-t-lg">
               <div className="flex items-center gap-2">
                 <img 
-                  src={halEyeOpen} 
+                  src={halEyeLarge} 
                   alt="HAL 9000" 
                   className="w-8 h-8 object-cover rounded-full"
                 />
