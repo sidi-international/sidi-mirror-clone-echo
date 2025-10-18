@@ -1,16 +1,16 @@
 import { Card, CardContent } from "./ui/card";
 const features = [{
-  title: "Efficiency",
-  description: "Concrete results thanks to HAL 2001's artificial intelligence, which optimizes every phase of the journey, reducing time and costs.",
-  image: "/lovable-uploads/3a4ec2ee-d5c1-4083-8c0f-818d15c4c608.png"
+  title: "Accessibility",
+  description: "No space experience required. Our guided journey takes you step by step into the most promising market of the future.",
+  image: "/lovable-uploads/3db0b114-873d-436e-8032-096850270dfe.png"
 }, {
   title: "Strategic Transformation",
   description: "We convert your existing skills into strategic assets for the space market, creating dual-use business models with both terrestrial and space value.",
   image: "/lovable-uploads/d7de8284-5310-455f-aed0-dca8d81c6094.png"
 }, {
-  title: "Accessibility",
-  description: "No space experience required. Our guided journey takes you step by step into the most promising market of the future.",
-  image: "/lovable-uploads/3db0b114-873d-436e-8032-096850270dfe.png"
+  title: "Efficiency",
+  description: "Concrete results thanks to HAL 2001's artificial intelligence, which optimizes every phase of the journey, reducing time and costs.",
+  image: "/lovable-uploads/3a4ec2ee-d5c1-4083-8c0f-818d15c4c608.png"
 }];
 const ProblemSolution = () => {
   return <section id="problem-solution" className="section bg-white">

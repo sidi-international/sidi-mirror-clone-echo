@@ -27,14 +27,14 @@ const services = [{
   price: "To be defined",
   description: "Development of the complete strategy and detailed action plan.",
   features: ["Clear objectives definition", "Implementation timeline", "Responsibility allocation", "Required resources planning", "Detailed roadmap"],
-  cta: "Request Info",
+  cta: "Learn More",
   slug: "strategy-action-plan"
 }, {
   title: "Implementation",
-  price: "TBD",
+  price: "To be defined",
   description: "Complete support in executing the strategic plan.",
   features: ["Specialized consulting", "Technical assistance", "Research and development", "Strategic partner identification", "Funding opportunity research"],
-  cta: "Contact Us",
+  cta: "Learn More",
   slug: "implementation"
 }];
 const ServicePackages = () => {

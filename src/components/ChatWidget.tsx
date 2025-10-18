@@ -1,18 +1,14 @@
-
 import { Avatar } from "@/components/ui/avatar";
 import { Card } from "@/components/ui/card";
+import { MessageCircle } from "lucide-react";
 
 const ChatWidget = () => {
   return (
     <div className="chat-widget">
       <div className="chat-button">
-        <Avatar className="w-16 h-16 border-2 border-white shadow-lg">
-          <img 
-            src="/lovable-uploads/317bcf42-f17a-42b2-be88-c2334b9bef80.png" 
-            alt="HAL 2001" 
-            className="w-full h-full object-contain"
-          />
-        </Avatar>
+        <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center border-2 border-white shadow-lg cursor-pointer hover:bg-primary/90 transition-colors">
+          <MessageCircle className="w-8 h-8 text-white" />
+        </div>
       </div>
       <div className="chat-tooltip">
         <Card className="p-3">
