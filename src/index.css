@@ -189,7 +189,8 @@
 
 /* HAL section */
 .hal-section {
-  @apply py-24 bg-gradient-to-r from-dark to-secondary text-white;
+  @apply py-24 text-white;
+  background: linear-gradient(to bottom, #0a0f1a, #192E4D);
 }
 
 /* Social links */
