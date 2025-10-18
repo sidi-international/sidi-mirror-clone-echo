@@ -56,6 +56,9 @@ const Hero = () => {
         style={{ backgroundImage: "url('/images/discovery-one-mobile.jpg')" }}
       />
       
+      {/* Dark overlay for text readability - lighter version */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/50" />
+      
       <div className="container-custom relative z-10">
         <div className="hero-content">
           <div className="hero-logo mb-8">
