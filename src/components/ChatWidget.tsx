@@ -134,7 +134,7 @@ const ChatWidget = () => {
             onClick={() => setIsOpen(true)}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className="w-16 h-16 rounded-full shadow-lg transition-transform hover:scale-110 cursor-pointer border-0 bg-transparent p-0"
+            className="w-16 h-16 rounded-full shadow-lg cursor-pointer border-0 bg-transparent p-0"
           >
             <img 
               src={isHovered ? halEyeOpen : halEyeClosed} 
