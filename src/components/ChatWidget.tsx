@@ -15,7 +15,7 @@ const ChatWidget = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Hi! I'm HAL 2001. I can help you discover the space opportunities for your company. What industry are you in?"
+      content: "Hi! I can help you discover the space opportunities for your company. What industry are you in?"
     }
   ]);
   const [input, setInput] = useState("");
@@ -134,7 +134,7 @@ const ChatWidget = () => {
         )}
 
         {isOpen && (
-          <Card className="w-96 h-[600px] flex flex-col shadow-2xl">
+          <Card className="w-96 h-[600px] flex flex-col shadow-2xl bg-background">
             <div className="flex items-center justify-between p-4 border-b bg-primary text-white rounded-t-lg">
               <div className="flex items-center gap-2">
                 <MessageCircle className="w-5 h-5" />
