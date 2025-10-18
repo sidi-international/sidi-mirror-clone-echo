@@ -30,7 +30,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="hero relative min-h-screen flex items-center text-white overflow-hidden">
+    <section className="hero relative min-h-screen flex items-center text-white overflow-hidden bg-black">
       {/* Video background for desktop/tablet */}
       <video
         ref={videoRef}
