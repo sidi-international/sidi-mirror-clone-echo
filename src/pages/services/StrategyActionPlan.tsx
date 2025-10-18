@@ -160,9 +160,20 @@ const StrategyActionPlan = () => {
             >
               Talk to HAL 2001
             </button>
-            <a href="/#contact" className="btn-primary bg-secondary text-white hover:bg-secondary/80 border-2 border-white">
+            <button 
+              onClick={() => {
+                window.location.href = '/#contact';
+                setTimeout(() => {
+                  const contactSection = document.getElementById('contact');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }, 100);
+              }}
+              className="btn-primary bg-secondary text-white hover:bg-secondary/80 border-2 border-white"
+            >
               Contact Us
-            </a>
+            </button>
           </div>
         </div>
       </section>

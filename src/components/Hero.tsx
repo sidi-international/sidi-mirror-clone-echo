@@ -18,8 +18,8 @@ const Hero = () => {
       const duration = video.duration;
       const currentTime = video.currentTime;
       
-      // Fade to black negli ultimi 2 secondi
-      if (duration - currentTime <= 2 && duration - currentTime > 0) {
+      // Fade to black negli ultimi 4 secondi
+      if (duration - currentTime <= 4 && duration - currentTime > 0) {
         if (!fadeStarted) {
           fadeOverlay.style.opacity = '1';
           fadeStarted = true;
@@ -52,8 +52,8 @@ const Hero = () => {
       {/* Fade overlay */}
       <div 
         ref={fadeOverlayRef}
-        className="absolute inset-0 bg-black pointer-events-none hidden md:block transition-opacity duration-[2000ms] ease-in-out"
-        style={{ opacity: 0 }}
+        className="absolute inset-0 bg-black pointer-events-none hidden md:block transition-opacity duration-[3500ms]"
+        style={{ opacity: 0, transitionTimingFunction: 'cubic-bezier(0.4, 0.0, 0.2, 1)' }}
       />
       
       {/* Static image for mobile */}
