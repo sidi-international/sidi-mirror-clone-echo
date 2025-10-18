@@ -38,9 +38,10 @@ const Hero = () => {
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
+        poster="/images/discovery-one-mobile.jpg"
         className="absolute inset-0 w-full h-full object-cover hidden md:block"
-        src="/videos/discovery-one.mp4#t=0.1"
+        src="/videos/discovery-one.mp4"
       />
       
       {/* Fade overlay */}
