@@ -3,13 +3,28 @@ import { Button } from "./ui/button";
 
 const Hero = () => {
   return (
-    <section 
-      className="hero relative min-h-screen flex items-center bg-cover bg-center text-white" 
-      style={{
-        backgroundImage: "linear-gradient(rgba(26, 26, 46, 0.5), rgba(26, 26, 46, 0.7)), url('/lovable-uploads/4bd85052-7194-491e-9b96-794583139e8b.png')"
-      }}
-    >
-      <div className="container-custom">
+    <section className="hero relative min-h-screen flex items-center text-white overflow-hidden">
+      {/* Video background for desktop/tablet */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        className="absolute inset-0 w-full h-full object-cover hidden md:block"
+        src="/videos/discovery-one.mp4#t=0.1"
+      />
+      
+      {/* Static image for mobile */}
+      <div 
+        className="absolute inset-0 w-full h-full bg-cover bg-center md:hidden"
+        style={{ backgroundImage: "url('/images/discovery-one-mobile.jpg')" }}
+      />
+      
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/70" />
+      
+      <div className="container-custom relative z-10">
         <div className="hero-content">
           <div className="hero-logo mb-8">
             <a href="https://marsplanet.org/" target="_blank" rel="noopener noreferrer">
