@@ -30,7 +30,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center px-4">
         <a href="https://marsplanet.org/" target="_blank" rel="noopener noreferrer" className="flex items-center">
           <img 
-            src="https://marsplanet.org/wp-content/uploads/2023/04/logo-mars-planet-nuovo.png" 
+            src="/lovable-uploads/0dd9fcae-ac71-4b75-b82d-3cc9c6c3ef6b.png" 
             alt="Mars Planet Logo" 
             className="h-10"
           />
