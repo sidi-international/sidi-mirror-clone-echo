@@ -2,8 +2,11 @@ import { CheckIcon, ArrowLeft } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import ChatWidget from "@/components/ChatWidget";
+import { useScrollToHash } from "@/hooks/useScrollToHash";
 
 const KillerIdeaIdentification = () => {
+  useScrollToHash();
+  
   return (
     <div className="bg-light min-h-screen">
       {/* Hero Section */}
@@ -163,12 +166,12 @@ const KillerIdeaIdentification = () => {
             >
               Talk to HAL 2001
             </button>
-            <a 
-              href="/#contact"
+            <Link 
+              to="/#contact"
               className="btn-primary bg-secondary text-white hover:bg-secondary/80 border-2 border-white inline-block text-center"
             >
               Contact Us
-            </a>
+            </Link>
           </div>
         </div>
       </section>
