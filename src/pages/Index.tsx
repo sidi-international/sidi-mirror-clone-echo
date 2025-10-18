@@ -4,7 +4,6 @@ import ProblemSolution from "../components/ProblemSolution";
 import HowItWorks from "../components/HowItWorks";
 import HalSection from "../components/HalSection";
 import ServicePackages from "../components/ServicePackages";
-import SuccessStories from "../components/SuccessStories";
 import Credibility from "../components/Credibility";
 import FAQ from "../components/FAQ";
 import CTA from "../components/CTA";
@@ -18,7 +17,6 @@ const Index = () => {
       <HowItWorks />
       <HalSection />
       <ServicePackages />
-      <SuccessStories />
       <Credibility />
       <FAQ />
       <CTA />
