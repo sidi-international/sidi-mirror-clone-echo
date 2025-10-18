@@ -6,18 +6,22 @@ export const useScrollToHash = () => {
 
   useEffect(() => {
     if (location.hash) {
-      // Piccolo delay per assicurarsi che il DOM sia pronto
+      // Delay più lungo per assicurarsi che il DOM sia completamente pronto
       const timer = setTimeout(() => {
         const id = location.hash.replace('#', '');
         const element = document.getElementById(id);
         
         if (element) {
-          element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+          // Calcola la posizione tenendo conto della navbar fixed (80px)
+          const yOffset = -80;
+          const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          
+          window.scrollTo({
+            top: y,
+            behavior: 'smooth'
           });
         }
-      }, 100);
+      }, 300);
 
       return () => clearTimeout(timer);
     }
