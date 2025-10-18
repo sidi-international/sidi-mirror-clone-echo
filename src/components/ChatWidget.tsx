@@ -200,7 +200,10 @@ const ChatWidget = () => {
                 <h3 className="font-semibold">HAL 2001 <span className="text-sm font-normal">(Sales Assistant Version)</span></h3>
               </div>
               <Button
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false);
+                  setAnimationFrame(0);
+                }}
                 variant="ghost"
                 size="icon"
                 className="text-white hover:bg-white/20"
