@@ -12,18 +12,23 @@ const Hero = () => {
     
     if (!video || !fadeOverlay) return;
 
+    let isFading = false;
+
     const handleTimeUpdate = () => {
       const duration = video.duration;
       const currentTime = video.currentTime;
       const timeRemaining = duration - currentTime;
       
       // Inizia il fade 4 secondi prima della fine
-      if (timeRemaining <= 4 && timeRemaining > 0) {
-        // Calcola l'opacità in modo graduale (da 0 a 1)
-        const opacity = 1 - (timeRemaining / 4);
-        fadeOverlay.style.opacity = opacity.toString();
-      } else if (timeRemaining <= 0) {
-        // Alla fine del video, riporta a 0 per il loop
+      if (timeRemaining <= 4 && timeRemaining > 0.1 && !isFading) {
+        isFading = true;
+        fadeOverlay.style.transition = 'opacity 4s ease-in-out';
+        fadeOverlay.style.opacity = '1';
+      } 
+      // Reset quando il video riparte
+      else if (timeRemaining > 4 && isFading) {
+        isFading = false;
+        fadeOverlay.style.transition = 'none';
         fadeOverlay.style.opacity = '0';
       }
     };
