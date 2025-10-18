@@ -150,11 +150,20 @@ const StrategyActionPlan = () => {
             Transform your killer idea into an actionable strategic plan
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#" className="btn-primary bg-white text-primary hover:bg-white/90">
-              Request Information
-            </a>
-            <a href="#" className="btn-primary bg-white/10 border-2 border-white hover:bg-white/20">
+            <button className="btn-primary bg-primary text-white hover:bg-primary/90">
+              Buy Now
+            </button>
+            <button 
+              onClick={() => {
+                const chatButton = document.querySelector('[data-chat-button]') as HTMLButtonElement;
+                if (chatButton) chatButton.click();
+              }}
+              className="btn-primary bg-white text-primary hover:bg-white/90"
+            >
               Talk to HAL 2001
+            </button>
+            <a href="/#contact" className="btn-primary bg-secondary text-white hover:bg-secondary/80">
+              Contact Us
             </a>
           </div>
         </div>

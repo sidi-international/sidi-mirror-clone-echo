@@ -12,16 +12,21 @@ const Hero = () => {
     
     if (!video || !fadeOverlay) return;
 
+    let fadeStarted = false;
+
     const handleTimeUpdate = () => {
       const duration = video.duration;
       const currentTime = video.currentTime;
       
       // Fade to black negli ultimi 2 secondi
       if (duration - currentTime <= 2 && duration - currentTime > 0) {
-        const opacity = 1 - (duration - currentTime) / 2;
-        fadeOverlay.style.opacity = opacity.toString();
+        if (!fadeStarted) {
+          fadeOverlay.style.opacity = '1';
+          fadeStarted = true;
+        }
       } else {
         fadeOverlay.style.opacity = '0';
+        fadeStarted = false;
       }
     };
 
