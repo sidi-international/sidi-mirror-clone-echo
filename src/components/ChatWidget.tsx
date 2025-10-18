@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import { MessageCircle, X, Send, Loader2 } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import ReactMarkdown from "react-markdown";
+import halEyeClosed from "@/assets/hal-eye-closed.png";
+import halEyeOpen from "@/assets/hal-eye-open.png";
 
 interface Message {
   role: "user" | "assistant";
@@ -126,21 +128,28 @@ const ChatWidget = () => {
     <>
       <div className="fixed bottom-8 right-8 z-50">
         {!isOpen && (
-          <Button
+          <button
             data-chat-button
             onClick={() => setIsOpen(true)}
-            className="w-16 h-16 rounded-full bg-primary hover:bg-primary/90 border-2 border-white shadow-lg"
-            size="icon"
+            className="w-16 h-16 rounded-full shadow-lg transition-transform hover:scale-110 cursor-pointer border-0 bg-transparent p-0"
           >
-            <MessageCircle className="w-8 h-8 text-white" />
-          </Button>
+            <img 
+              src={halEyeClosed} 
+              alt="HAL 9000" 
+              className="w-full h-full object-cover rounded-full"
+            />
+          </button>
         )}
 
         {isOpen && (
           <Card className="w-96 h-[600px] flex flex-col shadow-2xl bg-background">
             <div className="flex items-center justify-between p-4 border-b bg-primary text-white rounded-t-lg">
               <div className="flex items-center gap-2">
-                <MessageCircle className="w-5 h-5" />
+                <img 
+                  src={halEyeOpen} 
+                  alt="HAL 9000" 
+                  className="w-8 h-8 object-cover rounded-full"
+                />
                 <h3 className="font-semibold">HAL 2001 <span className="text-sm font-normal">(Sales Assistant Version)</span></h3>
               </div>
               <Button
