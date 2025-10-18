@@ -7,6 +7,7 @@ import ServicePackages from "../components/ServicePackages";
 import Credibility from "../components/Credibility";
 import FAQ from "../components/FAQ";
 import CTA from "../components/CTA";
+import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
 import ChatWidget from "../components/ChatWidget";
 
@@ -21,6 +22,7 @@ const Index = () => {
       <Credibility />
       <FAQ />
       <CTA />
+      <ContactForm />
       <Footer />
       <ChatWidget />
     </div>
