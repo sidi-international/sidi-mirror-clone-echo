@@ -12,7 +12,9 @@ const Hero = () => {
       <div className="container-custom">
         <div className="hero-content">
           <div className="hero-logo mb-8">
-            <img alt="Mars Planet Logo" src="/lovable-uploads/0dd9fcae-ac71-4b75-b82d-3cc9c6c3ef6b.png" className="h-40 mx-auto object-scale-down" />
+            <a href="https://marsplanet.org/" target="_blank" rel="noopener noreferrer">
+              <img alt="Mars Planet Logo" src="/lovable-uploads/0dd9fcae-ac71-4b75-b82d-3cc9c6c3ef6b.png" className="h-40 mx-auto object-scale-down" />
+            </a>
           </div>
           
           <h1>Discovery One</h1>
