@@ -1,11 +1,39 @@
 
 import { Button } from "./ui/button";
+import { useEffect, useRef } from "react";
 
 const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const fadeOverlayRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    const fadeOverlay = fadeOverlayRef.current;
+    
+    if (!video || !fadeOverlay) return;
+
+    const handleTimeUpdate = () => {
+      const duration = video.duration;
+      const currentTime = video.currentTime;
+      
+      // Fade to black negli ultimi 2 secondi
+      if (duration - currentTime <= 2 && duration - currentTime > 0) {
+        const opacity = 1 - (duration - currentTime) / 2;
+        fadeOverlay.style.opacity = opacity.toString();
+      } else {
+        fadeOverlay.style.opacity = '0';
+      }
+    };
+
+    video.addEventListener('timeupdate', handleTimeUpdate);
+    return () => video.removeEventListener('timeupdate', handleTimeUpdate);
+  }, []);
+
   return (
     <section className="hero relative min-h-screen flex items-center text-white overflow-hidden">
       {/* Video background for desktop/tablet */}
       <video
+        ref={videoRef}
         autoPlay
         muted
         loop
@@ -13,6 +41,13 @@ const Hero = () => {
         preload="metadata"
         className="absolute inset-0 w-full h-full object-cover hidden md:block"
         src="/videos/discovery-one.mp4#t=0.1"
+      />
+      
+      {/* Fade overlay */}
+      <div 
+        ref={fadeOverlayRef}
+        className="absolute inset-0 bg-black pointer-events-none hidden md:block transition-opacity duration-[2000ms] ease-in-out"
+        style={{ opacity: 0 }}
       />
       
       {/* Static image for mobile */}
