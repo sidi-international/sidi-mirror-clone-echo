@@ -7,6 +7,7 @@ import ServicePackages from "../components/ServicePackages";
 import Credibility from "../components/Credibility";
 import FAQ from "../components/FAQ";
 import CTA from "../components/CTA";
+import Footer from "../components/Footer";
 import ChatWidget from "../components/ChatWidget";
 
 const Index = () => {
@@ -20,6 +21,7 @@ const Index = () => {
       <Credibility />
       <FAQ />
       <CTA />
+      <Footer />
       <ChatWidget />
     </div>
   );

@@ -58,7 +58,10 @@ const ServicePackages = () => {
             </Avatar>
             <h3 className="text-xl font-semibold mb-4 text-center">Not sure where to start?</h3>
             <p className="text-center text-gray-600 mb-6">Talk to HAL 2001 for a personalized recommendation</p>
-            <a href="#" className="btn-primary">Chat with HAL 2001</a>
+            <button onClick={() => {
+              const chatButton = document.querySelector('[data-chat-button]') as HTMLButtonElement;
+              if (chatButton) chatButton.click();
+            }} className="btn-primary">Chat with HAL 2001</button>
           </Card>
         </div>
       </div>

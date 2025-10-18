@@ -38,7 +38,10 @@ const FAQ = () => {
           
           <div className="text-center mt-16 mb-8">
             <p className="text-xl mb-8 my-[55px]">Have more questions? HAL 2001 is always at your disposal</p>
-            <a href="#" className="btn-primary my-[9px] px-[30px] py-[20px]">Talk to HAL 2001</a>
+            <button onClick={() => {
+              const chatButton = document.querySelector('[data-chat-button]') as HTMLButtonElement;
+              if (chatButton) chatButton.click();
+            }} className="btn-primary my-[9px] px-[30px] py-[20px]">Talk to HAL 2001</button>
           </div>
         </div>
       </div>

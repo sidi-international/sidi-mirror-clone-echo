@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-secondary text-white shadow-lg py-2' : 'bg-transparent text-white py-4'}`}>
       <div className="container mx-auto flex justify-between items-center px-4">
-        <a href="/" className="flex items-center">
+        <a href="https://marsplanet.org/" target="_blank" rel="noopener noreferrer" className="flex items-center">
           <img 
             src="https://marsplanet.org/wp-content/uploads/2023/04/logo-mars-planet-nuovo.png" 
             alt="Mars Planet Logo" 

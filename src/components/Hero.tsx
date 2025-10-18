@@ -20,7 +20,7 @@ const Hero = () => {
           <p className="py-2 mx-auto max-w-xl">Transforming companies into protagonists of the space economy, regardless of their sector or size.</p>
           
           <div className="flex flex-wrap justify-center gap-4 py-[19px] px-0 mx-0 my-[90px]">
-            <a href="#services" className="btn-primary">Start Your Space Journey</a>
+            <a href="#how-it-works" className="btn-primary">Start Your Space Journey</a>
             <a href="#how-it-works" className="btn-secondary">How It Works</a>
           </div>
           

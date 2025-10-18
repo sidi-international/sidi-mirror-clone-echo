@@ -25,10 +25,18 @@ const ChatWidget = () => {
   const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
 
   useEffect(() => {
-    if (scrollAreaRef.current) {
+    if (scrollAreaRef.current && messages.length > 0) {
       const scrollContainer = scrollAreaRef.current.querySelector('[data-radix-scroll-area-viewport]');
       if (scrollContainer) {
-        scrollContainer.scrollTop = scrollContainer.scrollHeight;
+        const lastMessage = messages[messages.length - 1];
+        // Scroll to show the beginning of the last message
+        setTimeout(() => {
+          const messageElements = scrollContainer.querySelectorAll('[data-message]');
+          const lastElement = messageElements[messageElements.length - 1];
+          if (lastElement) {
+            lastElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
       }
     }
   }, [messages]);
@@ -118,20 +126,14 @@ const ChatWidget = () => {
     <>
       <div className="fixed bottom-8 right-8 z-50">
         {!isOpen && (
-          <div className="relative">
-            <Button
-              onClick={() => setIsOpen(true)}
-              className="w-16 h-16 rounded-full bg-primary hover:bg-primary/90 border-2 border-white shadow-lg"
-              size="icon"
-            >
-              <MessageCircle className="w-8 h-8 text-white" />
-            </Button>
-            <div className="absolute bottom-20 right-0 w-64 animate-in fade-in slide-in-from-bottom-2">
-              <Card className="p-3 shadow-xl">
-                <p className="text-sm">Hi! I'm HAL 2001. Can I help you discover the space opportunities for your company?</p>
-              </Card>
-            </div>
-          </div>
+          <Button
+            data-chat-button
+            onClick={() => setIsOpen(true)}
+            className="w-16 h-16 rounded-full bg-primary hover:bg-primary/90 border-2 border-white shadow-lg"
+            size="icon"
+          >
+            <MessageCircle className="w-8 h-8 text-white" />
+          </Button>
         )}
 
         {isOpen && (
@@ -156,6 +158,7 @@ const ChatWidget = () => {
                 {messages.map((message, index) => (
                   <div
                     key={index}
+                    data-message
                     className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
                   >
                     <div
