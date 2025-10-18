@@ -178,20 +178,12 @@ const Implementation = () => {
             >
               Talk to HAL 2001
             </button>
-            <button 
-              onClick={() => {
-                window.location.href = '/#contact';
-                setTimeout(() => {
-                  const contactSection = document.getElementById('contact');
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }
-                }, 100);
-              }}
-              className="btn-primary bg-secondary text-white hover:bg-secondary/80 border-2 border-white"
+            <a 
+              href="/#contact"
+              className="btn-primary bg-secondary text-white hover:bg-secondary/80 border-2 border-white inline-block text-center"
             >
               Contact Us
-            </button>
+            </a>
           </div>
         </div>
       </section>

@@ -21,12 +21,16 @@ const Hero = () => {
       // Fade to black negli ultimi 4 secondi
       if (duration - currentTime <= 4 && duration - currentTime > 0) {
         if (!fadeStarted) {
-          fadeOverlay.style.opacity = '1';
+          fadeOverlay.classList.remove('opacity-0');
+          fadeOverlay.classList.add('opacity-100');
           fadeStarted = true;
         }
       } else {
-        fadeOverlay.style.opacity = '0';
-        fadeStarted = false;
+        if (fadeStarted) {
+          fadeOverlay.classList.remove('opacity-100');
+          fadeOverlay.classList.add('opacity-0');
+          fadeStarted = false;
+        }
       }
     };
 
@@ -52,8 +56,7 @@ const Hero = () => {
       {/* Fade overlay */}
       <div 
         ref={fadeOverlayRef}
-        className="absolute inset-0 bg-black pointer-events-none hidden md:block transition-opacity duration-[3500ms]"
-        style={{ opacity: 0, transitionTimingFunction: 'cubic-bezier(0.4, 0.0, 0.2, 1)' }}
+        className="absolute inset-0 bg-black pointer-events-none hidden md:block transition-opacity duration-[3500ms] ease-in-out opacity-0"
       />
       
       {/* Static image for mobile */}
