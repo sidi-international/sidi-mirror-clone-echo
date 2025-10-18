@@ -1,6 +1,7 @@
 import { CheckIcon, ArrowLeft } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import ChatWidget from "@/components/ChatWidget";
 
 const OpportunityAssessment = () => {
   return (
@@ -158,12 +159,13 @@ const OpportunityAssessment = () => {
             >
               Talk to HAL 2001
             </button>
-            <a href="/#contact" className="btn-primary bg-secondary text-white hover:bg-secondary/80">
+            <a href="/#contact" className="btn-primary bg-secondary text-white hover:bg-secondary/80 border-2 border-white">
               Contact Us
             </a>
           </div>
         </div>
       </section>
+      <ChatWidget />
     </div>
   );
 };

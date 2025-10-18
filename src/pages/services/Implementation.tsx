@@ -1,6 +1,7 @@
 import { CheckIcon, ArrowLeft } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import ChatWidget from "@/components/ChatWidget";
 
 const Implementation = () => {
   return (
@@ -168,9 +169,6 @@ const Implementation = () => {
             Get expert support throughout your journey to space market success
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn-primary bg-primary text-white hover:bg-primary/90">
-              Buy Now
-            </button>
             <button 
               onClick={() => {
                 const chatButton = document.querySelector('[data-chat-button]') as HTMLButtonElement;
@@ -180,12 +178,13 @@ const Implementation = () => {
             >
               Talk to HAL 2001
             </button>
-            <a href="/#contact" className="btn-primary bg-secondary text-white hover:bg-secondary/80">
+            <a href="/#contact" className="btn-primary bg-secondary text-white hover:bg-secondary/80 border-2 border-white">
               Contact Us
             </a>
           </div>
         </div>
       </section>
+      <ChatWidget />
     </div>
   );
 };
