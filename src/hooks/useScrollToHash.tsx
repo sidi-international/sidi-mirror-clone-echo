@@ -6,9 +6,10 @@ export const useScrollToHash = () => {
 
   useEffect(() => {
     if (location.hash) {
-      // Delay più lungo per assicurarsi che il DOM sia completamente pronto
-      const timer = setTimeout(() => {
-        const id = location.hash.replace('#', '');
+      const id = location.hash.replace('#', '');
+      
+      // Funzione per tentare lo scroll con retry
+      const attemptScroll = (attempts = 0) => {
         const element = document.getElementById(id);
         
         if (element) {
@@ -20,8 +21,14 @@ export const useScrollToHash = () => {
             top: y,
             behavior: 'smooth'
           });
+        } else if (attempts < 20) {
+          // Riprova dopo 100ms se l'elemento non esiste ancora (max 2 secondi)
+          setTimeout(() => attemptScroll(attempts + 1), 100);
         }
-      }, 300);
+      };
+      
+      // Inizia a tentare dopo un piccolo delay
+      const timer = setTimeout(() => attemptScroll(), 100);
 
       return () => clearTimeout(timer);
     }

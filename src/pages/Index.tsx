@@ -1,4 +1,3 @@
-
 import Hero from "../components/Hero";
 import ProblemSolution from "../components/ProblemSolution";
 import HowItWorks from "../components/HowItWorks";
@@ -10,8 +9,11 @@ import CTA from "../components/CTA";
 import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
 import ChatWidget from "../components/ChatWidget";
+import { useScrollToHash } from "../hooks/useScrollToHash";
 
 const Index = () => {
+  useScrollToHash();
+  
   return (
     <div className="bg-light">
       <Hero />
